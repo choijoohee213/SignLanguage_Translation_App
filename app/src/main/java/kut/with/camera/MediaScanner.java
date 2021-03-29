@@ -1,4 +1,4 @@
-package com.example.cameraexample;
+package kut.with.camera;
 
 import android.content.Context;
 import android.media.MediaScannerConnection;
@@ -9,10 +9,10 @@ import android.text.TextUtils;
  * 이미지 저장 후 미디어 스캐닝을 수행해줄 때 사용하는 유틸 클래스
  */
 public class MediaScanner {
-    private                 Context                                             mContext;
-    private static volatile MediaScanner                                        mMediaInstance = null;
-    private                 MediaScannerConnection                              mMediaScanner;
-    //private                 MediaScannerConnection.MediaScannerConnectionClient mMediaScannerClient;
+    private Context mContext;
+    private static volatile MediaScanner mMediaInstance = null;
+    private MediaScannerConnection mMediaScanner;
+    //private MediaScannerConnection.MediaScannerConnectionClient mMediaScannerClient;
 
     private String mFilePath;
 

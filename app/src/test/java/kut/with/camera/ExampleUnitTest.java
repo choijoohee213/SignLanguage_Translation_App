@@ -1,4 +1,4 @@
-package com.example.cameraexample;
+package kut.with.camera;
 
 import org.junit.Test;
 
