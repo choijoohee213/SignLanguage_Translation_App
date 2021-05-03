@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.sample.cloudvision;
+package com.kut.with.cloudvision;
 
 import android.Manifest;
 import android.content.Intent;
@@ -49,6 +49,8 @@ import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
 import com.google.api.services.vision.v1.model.EntityAnnotation;
 import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
+import com.kut.with.BuildConfig;
+import com.kut.with.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

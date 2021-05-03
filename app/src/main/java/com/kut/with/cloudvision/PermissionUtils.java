@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.sample.cloudvision;
+package com.kut.with.cloudvision;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
