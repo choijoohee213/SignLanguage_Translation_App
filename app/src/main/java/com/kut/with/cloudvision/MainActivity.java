@@ -24,12 +24,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.content.FileProvider;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -320,10 +320,9 @@ public class MainActivity extends AppCompatActivity {
 
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
         if (labels != null) {
-            for (EntityAnnotation label : labels) {
-                message.append(String.format(Locale.US, "%s", label.getDescription()));
+            for (int i=1; i<labels.size(); i++) {
+                message.append(String.format(Locale.US, "%s", labels.get(i).getDescription()));
                 message.append("\n");
-
             }
         } else {
             message.append("nothing");
