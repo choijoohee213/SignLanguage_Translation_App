@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.kut.with.cloudvision;
+package com.kut.with.app;
 
 import android.Manifest;
 import android.content.Intent;
@@ -31,7 +31,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -247,11 +251,11 @@ public class MainActivity extends AppCompatActivity {
         return annotateRequest;
     }
 
-    private static class LableDetectionTask extends AsyncTask<Object, Void, String> {
+    private class LabelDetectionTask extends AsyncTask<Object, Void, String> {
         private final WeakReference<MainActivity> mActivityWeakReference;
         private Vision.Images.Annotate mRequest;
 
-        LableDetectionTask(MainActivity activity, Vision.Images.Annotate annotate) {
+        LabelDetectionTask(MainActivity activity, Vision.Images.Annotate annotate) {
             mActivityWeakReference = new WeakReference<>(activity);
             mRequest = annotate;
         }
@@ -276,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
             MainActivity activity = mActivityWeakReference.get();
             if (activity != null && !activity.isFinishing()) {
                 TextView imageDetail = activity.findViewById(R.id.image_details);
-                ListView listView = activity.findViewById(R.id.listView);
+                ListView listView = activity.findViewById(R.id.listview);
                 imageDetail.setText("수어 단어 목록");
                 List<String> list = new ArrayList<>();
                 String[] array = result.split("\n");
@@ -292,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                         String data = (String) adapterView.getItemAtPosition(position);
 
-                        Intent intent = new Intent(activity.getApplicationContext(), subActivity.class);
+                        Intent intent = new Intent(activity.getApplicationContext(), VideoPlayerActivity.class);
                         intent.putExtra("name", data);
                         startActivity(intent);
                     }
@@ -307,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Do the real work in an async task, because we need to use the network anyway
         try {
-            AsyncTask<Object, Void, String> labelDetectionTask = new LableDetectionTask(this, prepareAnnotationRequest(bitmap));
+            AsyncTask<Object, Void, String> labelDetectionTask = new LabelDetectionTask(this, prepareAnnotationRequest(bitmap));
             labelDetectionTask.execute();
         } catch (IOException e) {
             Log.d(TAG, "failed to make API request because of other IOException " +

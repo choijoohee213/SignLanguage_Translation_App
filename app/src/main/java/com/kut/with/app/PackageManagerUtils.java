@@ -1,4 +1,4 @@
-package com.kut.with.cloudvision;
+package com.kut.with.app;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;

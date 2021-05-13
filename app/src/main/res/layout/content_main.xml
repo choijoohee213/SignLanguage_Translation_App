@@ -9,7 +9,7 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                tools:context="com.kut.with.cloudvision.MainActivity"
+                tools:context="com.kut.with.app.MainActivity"
                 tools:showIn="@layout/activity_main">
 
     <ScrollView
@@ -30,6 +30,11 @@
                 android:text="하단의 버튼을 통해 수화를 원하는 사진을 선택해주세요."
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="wrap_content"
+                android:layout_height="158dp" />
 
             <ImageView
                 android:id="@+id/main_image"

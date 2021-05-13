@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.kut.with.cloudvision.subActivity"
-    tools:showIn="@layout/subactivity_main">
+    tools:context="com.kut.with.app.VideoPlayerActivity"
+    tools:showIn="@layout/activity_video_player">
 
     <ScrollView
         android:layout_width="match_parent"
