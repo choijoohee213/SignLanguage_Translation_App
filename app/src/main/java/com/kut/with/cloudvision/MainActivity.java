@@ -276,7 +276,27 @@ public class MainActivity extends AppCompatActivity {
             MainActivity activity = mActivityWeakReference.get();
             if (activity != null && !activity.isFinishing()) {
                 TextView imageDetail = activity.findViewById(R.id.image_details);
-                imageDetail.setText(result);
+                ListView listView = activity.findViewById(R.id.listView);
+                imageDetail.setText("수어 단어 목록");
+                List<String> list = new ArrayList<>();
+                String[] array = result.split("\n");
+                for(int i = 0; i < array.length; i++)
+                    list.add(array[i]);
+
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(listView.getContext(), android.R.layout.simple_list_item_1, list);
+                listView.setAdapter(adapter);
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        String data = (String) adapterView.getItemAtPosition(position);
+
+                        Intent intent = new Intent(activity.getApplicationContext(), subActivity.class);
+                        intent.putExtra("name", data);
+                        startActivity(intent);
+                    }
+                });
             }
         }
     }
@@ -316,14 +336,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static String convertResponseToString(BatchAnnotateImagesResponse response) {
-        StringBuilder message = new StringBuilder("해당 문자를 찾았습니다.:\n\n");
-
+        //StringBuilder message = new StringBuilder("해당 문자를 찾았습니다.:\n\n");
+        StringBuilder message = new StringBuilder();
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
+        String list[] = {"화장실", "편의점", "남자", "남성", "여자", "여성", "병원", "의원", "빵집", "카페", "우체국", "초등학교", "중학교", "고등학교", "대학교", "식당", "음식점"};
         if (labels != null) {
-            for (int i=1; i<labels.size(); i++) {
-                message.append(String.format(Locale.US, "%s", labels.get(i).getDescription()));
-                message.append("\n");
+            for (int j=0; j<list.length; j++) {
+                for(int i=1; i<labels.size(); i++) {
+                    if (labels.get(i).getDescription().contains(list[j])) {
+                        message.append(String.format(Locale.US, "%s", labels.get(i).getDescription()+"\n"));
+                        //message.append("\n");
+                    }
+                }
             }
+            if(message == null)
+                message.append("nothing");
         } else {
             message.append("nothing");
         }
