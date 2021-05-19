@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mImageDetails;
     private ImageView mMainImage;
+    private int checkResultcode = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startGalleryChooser() {
+        checkResultcode = 1;
         if (PermissionUtils.requestPermission(this, GALLERY_PERMISSIONS_REQUEST, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             Intent intent = new Intent();
             intent.setType("image/*");
@@ -114,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startCamera() {
+        checkResultcode = 2;
         if (PermissionUtils.requestPermission(
                 this,
                 CAMERA_PERMISSIONS_REQUEST,
@@ -172,6 +175,12 @@ public class MainActivity extends AppCompatActivity {
                                 MAX_DIMENSION);
 
                 callCloudVision(bitmap);
+
+                if(checkResultcode == 2){
+                    bitmap = rotateImage(bitmap, 90);
+                }
+
+                checkResultcode = 0;
                 mMainImage.setImageBitmap(bitmap);
 
             } catch (IOException e) {
