@@ -19,6 +19,7 @@ package com.kut.with.app;
 import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -165,6 +166,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static Bitmap rotateImage(Bitmap source, float angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
+                matrix, true);
+    }
+    
     public void uploadImage(Uri uri) {
         if (uri != null) {
             try {
@@ -293,9 +301,13 @@ public class MainActivity extends AppCompatActivity {
                 imageDetail.setText("수어 단어 목록");
                 List<String> list = new ArrayList<>();
                 String[] array = result.split("\n");
-                for(int i = 0; i < array.length; i++)
-                    list.add(array[i]);
+                for (int i = 0; i < array.length; i++){
+                    if (list.contains(array[i])) {  //리스트에 있는지 확인
 
+                    } else {
+                        list.add(array[i]); //리스트에 없으면 추가
+                    }
+                }
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(listView.getContext(), android.R.layout.simple_list_item_1, list);
                 listView.setAdapter(adapter);
