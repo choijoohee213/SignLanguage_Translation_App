@@ -30,14 +30,11 @@
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/main_image"
+            <VideoView
+                android:id="@+id/videoview"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginBottom="8dp"
-                android:scaleType="fitCenter" />
-
+                android:layout_height="500dp"
+                android:layout_gravity="center"/>
 
 
 
