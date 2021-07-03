@@ -40,6 +40,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
@@ -81,9 +82,14 @@ public class MainActivity extends AppCompatActivity {
     public static final int CAMERA_PERMISSIONS_REQUEST = 2;
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
+    private static final int FROM_CAMERA = 1;
+    private static final int FROM_GALLERY = 2;
+
     private TextView mImageDetails;
     private ImageView mMainImage;
-    private int checkResultcode = 0;
+    private ListView listView;
+
+    private int takeFrom = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,11 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
         mImageDetails = findViewById(R.id.image_details);
         mMainImage = findViewById(R.id.main_image);
-
+        listView = findViewById(R.id.listview);
     }
 
     public void startGalleryChooser() {
-        checkResultcode = 1;
+        takeFrom = FROM_GALLERY;
         if (PermissionUtils.requestPermission(this, GALLERY_PERMISSIONS_REQUEST, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             Intent intent = new Intent();
             intent.setType("image/*");
@@ -119,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startCamera() {
-        checkResultcode = 2;
+        takeFrom = FROM_CAMERA;
         if (PermissionUtils.requestPermission(
                 this,
                 CAMERA_PERMISSIONS_REQUEST,
@@ -141,6 +147,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        //리스트 목록 비우기
+        List<String> list = new ArrayList<>();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(listView.getContext(), android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
 
         if (requestCode == GALLERY_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             uploadImage(data.getData());
@@ -176,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
     }
     
     public void uploadImage(Uri uri) {
+        //Glide.with(this).load(uri).into(mMainImage);
+
         if (uri != null) {
             try {
                 // scale the image to save on bandwidth
@@ -186,13 +199,13 @@ public class MainActivity extends AppCompatActivity {
 
                 callCloudVision(bitmap);
 
-                if(checkResultcode == 2){
+                //카메라로 촬영할 때
+                if(takeFrom == FROM_CAMERA){
                     bitmap = rotateImage(bitmap, 90);
+                    mMainImage.setImageBitmap(bitmap);
                 }
-
-                checkResultcode = 0;
-                mMainImage.setImageBitmap(bitmap);
-
+                else //앨범에서 가져왔을 때
+                    Glide.with(this).load(uri).into(mMainImage);
             } catch (IOException e) {
                 Log.d(TAG, "Image picking failed because " + e.getMessage());
                 Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
@@ -201,6 +214,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Image picker gave us a null image.");
             Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
+
+
     }
 
     private Vision.Images.Annotate prepareAnnotationRequest(Bitmap bitmap) throws IOException {
@@ -298,11 +313,12 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             MainActivity activity = mActivityWeakReference.get();
             if (activity != null && !activity.isFinishing()) {
-                TextView imageDetail = activity.findViewById(R.id.image_details);
-                ListView listView = activity.findViewById(R.id.listview);
-                imageDetail.setText("수어 단어 목록");
+                mImageDetails.setText("수어 단어 목록");
+
+                //리스트뷰에 결과 리스트 추가
                 List<String> list = new ArrayList<>();
                 String[] array = result.split("\n");
+
                 for (int i = 0; i < array.length; i++){
                     if (list.contains(array[i])) {  //리스트에 있는지 확인
 
