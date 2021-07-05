@@ -42,18 +42,18 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="74dp"
+        android:layout_width="wrap_content"
         android:layout_height="76dp"
         android:layout_gravity="bottom|left"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_gallery" />
+        android:src="@drawable/ic_baseline_crop_original_24"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/fab1"
-    android:layout_width="74dp"
+    android:layout_width="wrap_content"
     android:layout_height="76dp"
     android:layout_gravity="bottom|right"
     android:layout_margin="@dimen/fab_margin"
-    android:src="@android:drawable/ic_menu_gallery" />
+    android:src="@drawable/ic_baseline_local_see_24"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
