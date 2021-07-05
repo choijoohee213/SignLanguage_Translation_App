@@ -101,10 +101,17 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder
-                    .setMessage(R.string.dialog_select_prompt)
-                    .setPositiveButton(R.string.dialog_select_gallery, (dialog, which) -> startGalleryChooser())
-                    .setNegativeButton(R.string.dialog_select_camera, (dialog, which) -> startCamera());
+
+                startGalleryChooser();
+
+            builder.create().show();
+        });
+       FloatingActionButton fab1 = findViewById(R.id.fab1);
+        fab1.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+            startCamera();
+
             builder.create().show();
         });
 
