@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
-
 import com.kut.with.R;
 
 public class Intro extends AppCompatActivity {
@@ -22,7 +21,7 @@ public class Intro extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Intro.this, MainActivity.class);
+                Intent intent = new Intent(Intro.this, start.class);
                 startActivity(intent);
                 finish();
             }
