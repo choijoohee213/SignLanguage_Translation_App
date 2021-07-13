@@ -19,7 +19,6 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-<<<<<<< HEAD
 =======
 
 >>>>>>> a28fea2d8eaa6de9cb51b3d1ceb4bc9280f93bd6
