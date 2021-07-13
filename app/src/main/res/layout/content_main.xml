@@ -15,32 +15,30 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+            <ImageView
+                android:id="@+id/main_image"
+                android:layout_width="match_parent"
+                android:layout_marginTop="250dp"
+                android:layout_height="400dp"
+                android:scaleType="fitCenter" />
             <TextView
                 android:id="@+id/image_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
+                android:layout_marginLeft="60dp"
                 android:layout_marginBottom="8dp"
-                android:text="하단의 버튼을 통해 수화를 원하는 사진을 선택해주세요."
-                android:textColor="#ffffff"
+                android:text="아래 인식된 결과 중 변역할 글자를 선택하세요."
+                android:textColor="#000000"
                 android:textStyle="bold" />
-
             <ListView
                 android:id="@+id/listview"
                 android:layout_width="match_parent"
                 android:layout_height="158dp" />
-
-            <ImageView
-                android:id="@+id/main_image"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:scaleType="fitCenter" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

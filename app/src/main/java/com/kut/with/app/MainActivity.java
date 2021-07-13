@@ -29,6 +29,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -98,22 +99,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
+        if(select.takeFrom == 0){
                 startGalleryChooser();
-
-            builder.create().show();
-        });
-       FloatingActionButton fab1 = findViewById(R.id.fab1);
-        fab1.setOnClickListener(view -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
+        }
+        else if(select.takeFrom == 1){
             startCamera();
-
-            builder.create().show();
-        });
+        }
 
         mImageDetails = findViewById(R.id.image_details);
         mMainImage = findViewById(R.id.main_image);
@@ -192,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
         return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
                 matrix, true);
     }
-    
+
     public void uploadImage(Uri uri) {
         //Glide.with(this).load(uri).into(mMainImage);
 

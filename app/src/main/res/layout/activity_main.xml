@@ -5,34 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#FFEECE"
+    android:background="#FFFFFF"
     tools:context="com.kut.with.app.MainActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/koreatech"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="WITH"
-            android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:gravity="center"/>
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#FFEECE"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"/>
     </LinearLayout>
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,20 +26,5 @@
 
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="76dp"
-        android:layout_gravity="bottom|left"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_baseline_crop_original_24"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/fab1"
-    android:layout_width="wrap_content"
-    android:layout_height="76dp"
-    android:layout_gravity="bottom|right"
-    android:layout_margin="@dimen/fab_margin"
-    android:src="@drawable/ic_baseline_local_see_24"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
