@@ -311,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             MainActivity activity = mActivityWeakReference.get();
             if (activity != null && !activity.isFinishing()) {
-                mImageDetails.setText("수어 단어 목록");
+                mImageDetails.setText("- 아래 인식된 글자 중 번역할 글자를 선택하세요.");
 
                 //리스트뷰에 결과 리스트 추가
                 List<String> list = new ArrayList<>();
@@ -321,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
                     if (list.contains(array[i])) {  //리스트에 있는지 확인
 
                     } else {
-                        list.add(array[i]); //리스트에 없으면 추가
+                        list.add("ㆍ " + array[i]); //리스트에 없으면 추가
                     }
                 }
 

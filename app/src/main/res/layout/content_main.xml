@@ -11,35 +11,51 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 tools:context="com.kut.with.app.MainActivity"
                 tools:showIn="@layout/activity_main">
+    <ImageView
+        android:id="@+id/main_image"
+        android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_height="250dp"
+        android:scaleType="fitCenter" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="350dp"
+        android:layout_marginBottom="115dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
-                android:id="@+id/main_image"
-                android:layout_width="match_parent"
-                android:layout_marginTop="250dp"
-                android:layout_height="400dp"
-                android:scaleType="fitCenter" />
+
             <TextView
                 android:id="@+id/image_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginBottom="8dp"
-                android:text="아래 인식된 결과 중 변역할 글자를 선택하세요."
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:text="-아래 인식된 결과 중 번역할 글자를 선택하세요."
                 android:textColor="#000000"
                 android:textStyle="bold" />
+
             <ListView
                 android:id="@+id/listview"
                 android:layout_width="match_parent"
-                android:layout_height="158dp" />
+                android:layout_height="158dp"
+                android:divider="#ff7f00"
+                android:dividerHeight="3dp" />
+
+
         </LinearLayout>
     </ScrollView>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="690dp"
+        android:layout_marginLeft="33dp"
+        android:text="** 사진에 따라 인식률에 차이가 있을 수 있습니다. **"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 </RelativeLayout>

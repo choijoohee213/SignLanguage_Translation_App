@@ -32,9 +32,11 @@ public class VideoPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
 
+        //출력된 단어 중 선택된 단어 텍스트 표시
         Intent intent = getIntent();
         TextView text = (TextView)findViewById(R.id.image_name);
-        String word = intent.getStringExtra("name");
+        String word = intent.getStringExtra("name").replace("ㆍ ","");
+
         if(word != null) text.setText(word);
 
         videoView = findViewById(R.id.videoview);
