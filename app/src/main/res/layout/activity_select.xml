@@ -23,7 +23,7 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="300dp"
-        android:layout_marginLeft="55dp"
+        android:layout_gravity="center_horizontal"
         android:background="#FB8D51"
         android:layout_marginTop="200dp"
         android:layout_height="4dp" />
@@ -31,7 +31,7 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="300dp"
-        android:layout_marginLeft="55dp"
+        android:layout_gravity="center_horizontal"
         android:background="#FB8D51"
         android:layout_marginTop="260dp"
         android:layout_height="4dp"
@@ -47,60 +47,76 @@
         android:layout_width="140dp"
         android:layout_height="150dp"
         android:orientation="vertical"
-
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="320dp"
-
-        android:padding="100dp"
-        android:background="@drawable/layout_background"/>
-    <Button
-        android:id="@+id/fab"
-        android:layout_width="140dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginLeft="244dp"
-        android:background="@drawable/ic_baseline_crop_original_24" />
-
-    <LinearLayout
-        android:layout_width="140dp"
-        android:layout_height="150dp"
-        android:orientation="vertical"
-
-        android:layout_marginLeft="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="190dp"
         android:layout_marginTop="320dp"
 
         android:padding="100dp"
         android:background="@drawable/layout_background"
         />
+
     <TextView
         android:id="@+id/title2"
         android:layout_width="108dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginLeft="60dp"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginRight="178dp"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="8dp"
+
         android:text="카메라 촬영"
+        android:textSize="20dp"
         android:textColor="#000000"
 
         android:textStyle="bold" />
+
+
     <Button
         android:id="@+id/fab1"
-        android:layout_width="160dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="360dp"
+        android:layout_width="135dp"
+        android:layout_height="107dp"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginRight="230dp"
         android:layout_marginLeft="45dp"
+        android:layout_marginTop="360dp"
         android:background="@drawable/ic_baseline_local_see_24" />
+
+    <LinearLayout
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft = "190dp"
+        android:layout_marginTop="320dp"
+
+        android:padding="100dp"
+        android:background="@drawable/layout_background"/>
+
     <TextView
         android:id="@+id/title3"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginLeft="240dp"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginLeft="195dp"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="8dp"
+
         android:text="사진 불러오기"
+        android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/fab"
+        android:layout_width="128dp"
+        android:layout_height="113dp"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="360dp"
+        android:background="@drawable/ic_baseline_crop_original_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
