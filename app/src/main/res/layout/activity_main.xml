@@ -20,22 +20,21 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="650dp"
         android:background="#FFEECE"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_gravity="center"
+            android:layout_height="80dp"
             android:background="#FFEECE" />
 
     </LinearLayout>
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"/>
-
 
     <include layout="@layout/content_main" />
 
@@ -47,6 +46,5 @@
         android:src="@drawable/logo"
         app:layout_anchor="@+id/linearLayout2"
         app:layout_anchorGravity="center" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

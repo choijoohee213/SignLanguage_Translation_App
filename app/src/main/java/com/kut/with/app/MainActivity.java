@@ -182,8 +182,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void uploadImage(Uri uri) {
-        //Glide.with(this).load(uri).into(mMainImage);
-
         if (uri != null) {
             try {
                 // scale the image to save on bandwidth
@@ -196,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //카메라로 촬영할 때
                 if(takeFrom == FROM_CAMERA){
-                    bitmap = rotateImage(bitmap, 90);
+                    bitmap = rotateImage(bitmap, 0);
                     mMainImage.setImageBitmap(bitmap);
                 }
                 else //앨범에서 가져왔을 때
@@ -308,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             MainActivity activity = mActivityWeakReference.get();
             if (activity != null && !activity.isFinishing()) {
-                mImageDetails.setText("- 아래 인식된 글자 중 번역할 글자를 선택하세요.");
+                mImageDetails.setText(R.string.recognition_success_message);
 
                 //리스트뷰에 결과 리스트 추가
                 List<String> list = new ArrayList<>();
@@ -374,7 +372,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static String convertResponseToString(BatchAnnotateImagesResponse response) {
-        //StringBuilder message = new StringBuilder("해당 문자를 찾았습니다.:\n\n");
         StringBuilder message = new StringBuilder();
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
         String list[] = {"화장실", "편의점", "남자", "남성", "여자", "여성", "병원", "의원", "빵집", "카페", "우체국", "초등학교", "중학교", "고등학교", "대학교", "식당", "음식점"};

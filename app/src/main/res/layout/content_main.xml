@@ -27,35 +27,47 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/image_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:text="-아래 인식된 결과 중 번역할 글자를 선택하세요."
+                android:text="@string/recognition_success_message"
+                android:textSize="17dp"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
             <ListView
                 android:id="@+id/listview"
                 android:layout_width="match_parent"
-                android:layout_height="158dp"
+                android:layout_height="211dp"
                 android:divider="#ff7f00"
                 android:dividerHeight="3dp" />
 
 
         </LinearLayout>
     </ScrollView>
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="690dp"
-        android:layout_marginLeft="33dp"
-        android:text="** 사진에 따라 인식률에 차이가 있을 수 있습니다. **"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:text="** 사진에 따라 인식률에 차이가 있을 수 있습니다. **"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </RelativeLayout>

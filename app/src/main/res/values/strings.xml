@@ -4,10 +4,11 @@
     <string name="image_details_header">Details:</string>
     <string name="image_preview_header">Preview:</string>
     <string name="loading_message">이미지 업로드중입니다. 잠시만 기다려주세요.</string>
+    <string name="recognition_success_message">아래 인식된 글자 중 번역할 글자를 선택하세요.</string>
 
     <string name="dialog_select_prompt">사진을 선택해주세요.</string>
     <string name="dialog_select_camera">카메라</string>
     <string name="dialog_select_gallery">사진첩</string>
 
-    <string name="image_picker_error">사진에 이상이 있습니다. 다른 사진을 선택해주세요.</string>
+    <string name="image_picker_error">사진을 가져오는 중에 오류가 발생했습니다. 다른 사진을 선택해주세요.</string>
 </resources>
