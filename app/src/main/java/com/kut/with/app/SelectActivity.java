@@ -53,7 +53,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class select extends AppCompatActivity {
+public class SelectActivity extends AppCompatActivity {
     private static final String CLOUD_VISION_API_KEY = BuildConfig.API_KEY;
     public static final String FILE_NAME = "temp.jpg";
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
@@ -88,7 +88,7 @@ public class select extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button fab1 = findViewById(R.id.fab1); //카메
+        Button fab1 = findViewById(R.id.fab1); //카메라
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

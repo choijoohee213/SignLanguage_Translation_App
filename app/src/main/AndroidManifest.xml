@@ -12,8 +12,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.select"></activity>
-        <activity android:name=".app.start" />
+        <activity android:name=".app.SelectActivity"></activity>
+        <activity android:name=".app.StartActivity" />
         <activity
             android:name=".app.MainActivity"
             android:label="@string/app_name"
@@ -23,7 +23,7 @@
 
 >>>>>>> a28fea2d8eaa6de9cb51b3d1ceb4bc9280f93bd6
         </activity>
-        <activity android:name=".app.Intro">
+        <activity android:name=".app.IntroActivity">
             android:theme="@style/AppTheme.NoActionBar"
             android:theme="@android:style/Theme.NoTitleBar"
             android:label="WITH"
