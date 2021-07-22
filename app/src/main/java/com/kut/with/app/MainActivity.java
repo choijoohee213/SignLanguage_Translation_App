@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(SelectActivity.takeFrom == 0){
-                startGalleryChooser();
+            startGalleryChooser();
         }
         else if(SelectActivity.takeFrom == 1){
             startCamera();
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //카메라로 촬영할 때
                 if(takeFrom == FROM_CAMERA){
-                    bitmap = rotateImage(bitmap, 0);
+                    bitmap = rotateImage(bitmap, 90);
                     mMainImage.setImageBitmap(bitmap);
                 }
                 else //앨범에서 가져왔을 때

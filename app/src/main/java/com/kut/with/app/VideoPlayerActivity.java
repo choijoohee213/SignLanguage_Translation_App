@@ -13,6 +13,7 @@ import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,15 +32,17 @@ public class VideoPlayerActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         //출력된 단어 중 선택된 단어 텍스트 표시
         Intent intent = getIntent();
-        TextView text = (TextView)findViewById(R.id.image_name);
+        TextView text = (TextView)findViewById(R.id.video_name);
         String word = intent.getStringExtra("name").replace("ㆍ ","");
 
         if(word != null) text.setText(word);
 
-        videoView = findViewById(R.id.videoview);
+        videoView = findViewById(R.id.video_view);
         mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
 
