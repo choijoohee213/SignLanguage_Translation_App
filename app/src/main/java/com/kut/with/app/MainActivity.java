@@ -148,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(listView.getContext(), android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
+        //카메라/갤러리에서 사진을 찍거나 선택하지 않았을 경우 -> 이전 화면으로 돌아감
+        if(resultCode == RESULT_CANCELED && data == null){
+            finish();
+        }
+
         if (requestCode == GALLERY_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             uploadImage(data.getData());
         } else if (requestCode == CAMERA_IMAGE_REQUEST && resultCode == RESULT_OK) {
