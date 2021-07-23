@@ -18,8 +18,13 @@ package com.kut.with.app;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
+import android.hardware.Camera;
+import android.hardware.camera2.CameraDevice;
+import android.hardware.camera2.CameraManager;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -187,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void uploadImage(Uri uri) {
+        System.out.println(uri);
         if (uri != null) {
             try {
                 // scale the image to save on bandwidth
@@ -212,8 +218,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Image picker gave us a null image.");
             Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
-
-
     }
 
     private Vision.Images.Annotate prepareAnnotationRequest(Bitmap bitmap) throws IOException {
@@ -385,7 +389,6 @@ public class MainActivity extends AppCompatActivity {
                 for(int i=1; i<labels.size(); i++) {
                     if (labels.get(i).getDescription().contains(list[j])) {
                         message.append(String.format(Locale.US, "%s", labels.get(i).getDescription()+"\n"));
-                        //message.append("\n");
                     }
                 }
             }
