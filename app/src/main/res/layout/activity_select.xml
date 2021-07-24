@@ -78,8 +78,7 @@
         android:layout_height="107dp"
         android:layout_gravity="center_horizontal"
 
-        android:layout_marginRight="230dp"
-        android:layout_marginLeft="45dp"
+        android:layout_marginRight="185dp"
         android:layout_marginTop="360dp"
         android:background="@drawable/ic_baseline_local_see_24" />
 

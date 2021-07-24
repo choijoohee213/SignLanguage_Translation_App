@@ -20,7 +20,9 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
@@ -92,14 +94,19 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mMainImage;
     private ListView listView;
 
+    private ProgressDialog customProgressDialog;
+
     private int takeFrom = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        //로딩창 객체 생성
+        customProgressDialog = new ProgressDialog(this);
+        //로딩창을 투명하게
+        customProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         if(SelectActivity.takeFrom == 0){
             startGalleryChooser();
@@ -315,6 +322,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             MainActivity activity = mActivityWeakReference.get();
             if (activity != null && !activity.isFinishing()) {
+                customProgressDialog.dismiss();
                 mImageDetails.setText(R.string.recognition_success_message);
 
                 //리스트뷰에 결과 리스트 추가
@@ -348,7 +356,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void callCloudVision(final Bitmap bitmap) {
         // Switch text to loading
-        mImageDetails.setText(R.string.loading_message);
+        mImageDetails.setText("");
+        customProgressDialog.show();
 
         // Do the real work in an async task, because we need to use the network anyway
         try {
