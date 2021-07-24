@@ -40,7 +40,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
         String word = intent.getStringExtra("name").replace("ㆍ ","");
 
         if(word != null) {
-            text.setText(word);
+            text.setText("인식된 문자 : " + word);
         }
 
         videoView = findViewById(R.id.video_view);
