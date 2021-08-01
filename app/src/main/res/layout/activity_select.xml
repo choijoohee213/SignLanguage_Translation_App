@@ -118,4 +118,12 @@
         android:layout_marginTop="360dp"
         android:background="@drawable/ic_baseline_crop_original_24" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="580dp"
+            android:background="#FFEECE"
+            android:layout_gravity="center">
+        </ImageView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

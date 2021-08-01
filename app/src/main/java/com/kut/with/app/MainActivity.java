@@ -402,9 +402,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if(message == null)
-                message.append("nothing");
+                message.append("X");
         } else {
-            message.append("nothing");
+            message.append("X");
         }
 
         return message.toString();
