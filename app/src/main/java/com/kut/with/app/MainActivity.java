@@ -346,8 +346,12 @@ public class MainActivity extends AppCompatActivity {
                         String data = (String) adapterView.getItemAtPosition(position);
 
                         Intent intent = new Intent(activity.getApplicationContext(), VideoPlayerActivity.class);
-                        intent.putExtra("name", data);
-                        startActivity(intent);
+                        if(!data.contains("X")) {
+                            intent.putExtra("name", data);
+                            startActivity(intent);
+                        }
+
+
                     }
                 });
             }
@@ -392,7 +396,7 @@ public class MainActivity extends AppCompatActivity {
     private static String convertResponseToString(BatchAnnotateImagesResponse response) {
         StringBuilder message = new StringBuilder();
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
-        String list[] = {"화장실", "편의점", "남자", "남성", "여자", "여성", "병원", "의원", "빵집", "카페", "우체국", "초등학교", "중학교", "고등학교", "대학교", "식당", "음식점"};
+        String list[] = {"화장실", "남자", "남성", "여자", "여성", "병원", "의원", "빵집", "카페", "우체국", "초등학교", "중학교", "고등학교", "대학교", "식당", "음식점"};
         if (labels != null) {
             for (int j=0; j<list.length; j++) {
                 for(int i=1; i<labels.size(); i++) {
