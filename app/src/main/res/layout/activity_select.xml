@@ -73,7 +73,7 @@
 
 
     <Button
-        android:id="@+id/fab1"
+        android:id="@+id/cameraBtn"
         android:layout_width="135dp"
         android:layout_height="107dp"
         android:layout_gravity="center_horizontal"
@@ -109,7 +109,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/fab"
+        android:id="@+id/galleryBtn"
         android:layout_width="128dp"
         android:layout_height="113dp"
         android:layout_gravity="center_horizontal"

@@ -79,17 +79,8 @@ public class SelectActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button fab = (Button) findViewById(R.id.fab); //갤러리
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                takeFrom = 0;
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        Button fab1 = findViewById(R.id.fab1); //카메라
-        fab1.setOnClickListener(new View.OnClickListener() {
+        Button cameraBtn = findViewById(R.id.cameraBtn); //카메라
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 takeFrom = 1;
@@ -97,5 +88,16 @@ public class SelectActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button galleryBtn = (Button) findViewById(R.id.galleryBtn); //갤러리
+        galleryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                takeFrom = 0;
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
