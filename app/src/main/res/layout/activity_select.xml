@@ -14,7 +14,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/select_title_height"
             android:background="#FFEECE"
             android:layout_gravity="center"
             android:src="@drawable/logo"/>
@@ -22,19 +22,19 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/select_progressBar_width"
         android:layout_gravity="center_horizontal"
         android:background="#FB8D51"
-        android:layout_marginTop="200dp"
-        android:layout_height="4dp" />
+        android:layout_marginTop="@dimen/select_progressBar_marginTop"
+        android:layout_height="@dimen/select_progressBar_height" />
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/select_progressBar_width"
         android:layout_gravity="center_horizontal"
         android:background="#FB8D51"
         android:layout_marginTop="260dp"
-        android:layout_height="4dp"
+        android:layout_height="@dimen/select_progressBar_height"
         tools:ignore="DuplicateIds" />
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -118,12 +118,19 @@
         android:layout_marginTop="360dp"
         android:background="@drawable/ic_baseline_crop_original_24" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="bottom" >
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="580dp"
+            android:layout_height="match_parent"
             android:background="#FFEECE"
             android:layout_gravity="center">
         </ImageView>
+    </LinearLayout>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

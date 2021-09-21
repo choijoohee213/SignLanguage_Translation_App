@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/start_title_height"
         android:background="#FFEECE"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -27,14 +27,14 @@
             android:gravity="center"
             android:text="수화 번역 어플리케이션"
             android:textColor="#050505"
-            android:textSize="18sp"
+            android:textSize="@dimen/start_textSize"
             android:textStyle="bold" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="@dimen/start_logo_imgHeight"
         android:layout_gravity="center"
         android:background="#FFEECE"
         android:src="@drawable/logo"
@@ -50,7 +50,7 @@
         android:layout_gravity="center"
         android:text="버튼을 눌러 번역 시작"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="@dimen/start_textSize"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,8 +59,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="163dp"
-        android:layout_height="164dp"
+        android:layout_width="@dimen/start_logo_btnSize"
+        android:layout_height="@dimen/start_logo_btnSize"
         android:layout_weight="1"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
@@ -71,7 +71,7 @@
 
         <Button
             android:id="@+id/btn1"
-            android:layout_width="138dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -81,7 +81,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
-        android:layout_height="130dp"
+        android:layout_height="@dimen/start_logo_imgHeight"
         android:background="#FFEECE"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
