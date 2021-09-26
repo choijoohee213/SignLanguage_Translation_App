@@ -333,6 +333,7 @@ public class MainActivity extends AppCompatActivity {
                     if (list.contains(array[i])) {  //리스트에 있는지 확인
 
                     } else {
+
                         list.add("ㆍ " + array[i]); //리스트에 없으면 추가
                     }
                 }
@@ -395,16 +396,25 @@ public class MainActivity extends AppCompatActivity {
 
     private static String convertResponseToString(BatchAnnotateImagesResponse response) {
         StringBuilder message = new StringBuilder();
+        int cnt =0;
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
         String list[] = {"화장실", "남자", "남성", "여자", "여성", "병원", "의원", "빵집", "카페", "우체국", "초등학교", "중학교", "고등학교", "대학교", "식당", "음식점"};
         if (labels != null) {
             for (int j=0; j<list.length; j++) {
                 for(int i=1; i<labels.size(); i++) {
                     if (labels.get(i).getDescription().contains(list[j])) {
+
+                        cnt++;
                         message.append(String.format(Locale.US, "%s", labels.get(i).getDescription()+"\n"));
                     }
+
+
                 }
+
             }
+            if(cnt == 0)
+                message.append("X");
+
             if(message == null)
                 message.append("X");
         } else {
